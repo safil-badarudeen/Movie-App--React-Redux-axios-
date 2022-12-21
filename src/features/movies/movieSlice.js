@@ -8,9 +8,9 @@ import {APIkey} from '../../common/apis/MovieApiKey'
         const movieText = "harry";
     const response =await movieApi.get(
       `?apikey=${APIkey}&s=${movieText}&type=movie`
-    )
+    );
     //console.log(response.data)
-   return response.data
+   return response.data;
  })
 
 const initialState={
@@ -24,6 +24,7 @@ const movieSlice = createSlice({
         addMovies:(state,{payload})=>{
           state.movies=payload    
         },
+      },
     extraReducers:{
      [fetchAsyncMovies.pending]:()=>{
         console.log("pending")
@@ -36,7 +37,7 @@ const movieSlice = createSlice({
         console.log("rejected")
      },
     }
-    }
+    
   
 })
 
