@@ -1,6 +1,6 @@
 import React from 'react'
 import {getAllMovies,getAllShows} from '../../features/movies/movieSlice'
-import { useDispatch, useSelector} from 'react-redux'
+import {  useSelector} from 'react-redux'
 // import { fetchAsyncMovies } from "../../features/movies/movieSlice";
 import MovieCard from '../MovieCard/movieCard'
 import './MovieListing.scss'
@@ -10,7 +10,7 @@ const MovieListing=()=> {
   // const dispatch = useDispatch()
   // dispatch(fetchAsyncMovies()) 
   const movies = useSelector(getAllMovies);
-  const shows = useSelector(getAllShows)
+  const shows = useSelector(getAllShows);
   // console.log(shows)
   let renderShows= "";
   renderShows = shows.Response === "True" ? (
