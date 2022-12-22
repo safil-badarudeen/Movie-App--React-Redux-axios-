@@ -1,12 +1,28 @@
 import React from 'react'
-import {getAllMovies} from '../../features/movies/movieSlice'
-import { useSelector} from 'react-redux'
+import {getAllMovies,getAllShows} from '../../features/movies/movieSlice'
+import { useDispatch, useSelector} from 'react-redux'
+// import { fetchAsyncMovies } from "../../features/movies/movieSlice";
 import MovieCard from '../MovieCard/movieCard'
 import './MovieListing.scss'
 
 
 const MovieListing=()=> {
+  // const dispatch = useDispatch()
+  // dispatch(fetchAsyncMovies()) 
   const movies = useSelector(getAllMovies);
+  const shows = useSelector(getAllShows)
+  // console.log(shows)
+  let renderShows= "";
+  renderShows = shows.Response === "True" ? (
+    shows.Search.map((show,index)=>{
+      return <MovieCard key={index} data={show}/>
+    })
+  ) : (
+  <div className = "shows-error">
+    <h3>{shows.Error}</h3>
+    </div>
+    );
+
   let renderMovies= "";
   renderMovies = movies.Response === "True" ? (
   
@@ -26,6 +42,12 @@ const MovieListing=()=> {
         <h2>Movies</h2>
         <div className='movie-container'>
          {renderMovies}
+        </div>
+      </div>
+      <div className='show-list'>
+        <h2>Shows</h2>
+        <div className='movie-container'>
+         {renderShows}
         </div>
       </div>
     </div>
