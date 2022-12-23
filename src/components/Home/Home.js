@@ -8,9 +8,10 @@ import { useDispatch } from "react-redux";
 const Home = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    
-    dispatch(fetchAsyncMovies()) 
-    dispatch(fetchAsyncShows())
+    const movieText="harry"
+    const showText='friends'
+    dispatch(fetchAsyncMovies(movieText)) 
+    dispatch(fetchAsyncShows(showText))
   },[dispatch]); // to reload when change happensin dispatch
 
   return (
