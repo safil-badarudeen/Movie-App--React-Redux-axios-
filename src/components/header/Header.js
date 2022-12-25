@@ -12,10 +12,14 @@ const Header = () => {
   const dispatch = useDispatch();
   
 
-  const submitHandler = (e) => {
+  const submitHandler = async(e) => {
     e.preventDefault();
+    //console.log(typeof term)
+     if(!term){
+      return alert("please enter value in search")
+     }
     dispatch(fetchAsyncShows(term));
-  dispatch(fetchAsyncMovies(term));
+    dispatch(fetchAsyncMovies(term));
     setTerm("")
     //console.log(term)
   };
