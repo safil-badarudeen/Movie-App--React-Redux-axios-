@@ -8,7 +8,9 @@ import {
 } from "../../features/movies/movieSlice";
 import "./MovieDetail.scss";
 
+
 const MovieDetail = () => {
+ 
   const { imdbID } = useParams();
   const dispatch = useDispatch();
   const data = useSelector(getSelectedShowsOrMovies);
@@ -18,7 +20,7 @@ const MovieDetail = () => {
     dispatch(fetchAsyncShowsAndMoviesDetail(imdbID));
      return ()=>{ dispatch(removeSelectedMovieOrShow()
     )};
-  }, [dispatch, imdbID]);
+  },[dispatch,imdbID]);
   return (
     <div className="movie-section">
       {Object.keys(data).length === 0 ? (

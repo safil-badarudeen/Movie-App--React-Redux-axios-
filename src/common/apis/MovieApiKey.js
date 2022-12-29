@@ -1,3 +1,2 @@
-export const APIkey = <APIkey>;
+export const APIkey = "ce05da3a";
 
-{/*"ce05da3a" */}
